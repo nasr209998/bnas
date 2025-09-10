@@ -4,56 +4,52 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>موقع بسيط كلاسيكي</title>
+  
+  <!-- مكتبة AMP للإعلانات التلقائية -->
+  <script async custom-element="amp-auto-ads"
+          src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+  </script>
+
   <style>
     /* تصميم كلاسيكي نظيف */
     :root{
-      --bg:#fbf7f0; /* لون كريمي */
-      --accent:#1f2d3d; /* كحلي خشبي */
-      --muted:#6b6762;
-      --card:#fff;
-      --maxw:1100px;
-      --radius:12px;
+      --bg:#fbf7f0; --accent:#1f2d3d; --muted:#6b6762;
+      --card:#fff; --maxw:1100px; --radius:12px;
       font-family: 'Georgia', 'Times New Roman', serif;
     }
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--accent);line-height:1.6}
     .container{max-width:var(--maxw);margin:0 auto;padding:28px}
-
     header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
     .brand{display:flex;align-items:center;gap:14px}
     .logo{width:62px;height:62px;border-radius:8px;background:linear-gradient(135deg,#d9c8b6,#f3ebe0);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);box-shadow:0 2px 6px rgba(31,45,61,0.06)}
     nav ul{display:flex;gap:18px;margin:0;padding:0;list-style:none}
     nav a{color:var(--accent);text-decoration:none;font-weight:600}
-
     .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-top:22px}
     .hero .card{background:var(--card);padding:26px;border-radius:var(--radius);box-shadow:0 6px 24px rgba(31,45,61,0.06)}
     .hero h1{margin:0 0 8px;font-size:34px}
     .hero p{margin:0;color:var(--muted)}
     .cta{display:inline-block;margin-top:14px;padding:10px 18px;border-radius:10px;border:2px solid var(--accent);text-decoration:none;font-weight:700}
-
     .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
     .feature{background:var(--card);padding:18px;border-radius:10px;box-shadow:0 4px 18px rgba(31,45,61,0.04)}
     .feature h3{margin:0 0 6px}
-
     footer{margin-top:34px;padding:24px 0;border-top:1px solid rgba(0,0,0,0.04);color:var(--muted)}
     .small{font-size:14px}
-
-    /* استجابة بسيطة */
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr;}
-      nav ul{display:none}
-      .mobile-menu{display:block}
-    }
+    @media (max-width:900px){.hero{grid-template-columns:1fr;} nav ul{display:none} .mobile-menu{display:block}}
     .mobile-menu{display:none}
     .card form{display:flex;flex-direction:column;gap:10px}
     input,textarea{padding:10px;border-radius:8px;border:1px solid #e6dfd6;background:#fff;font-family:inherit}
     button{padding:10px 14px;border-radius:8px;border:0;background:var(--accent);color:#fff;font-weight:700}
-
-    /* لمسة كلاسيكية للخط */
     .muted{color:var(--muted)}
   </style>
 </head>
 <body>
+
+  <!-- إعلان AMP AdSense التلقائي -->
+  <amp-auto-ads type="adsense"
+        data-ad-client="ca-pub-3120818649933462">
+  </amp-auto-ads>
+
   <div class="container">
     <header>
       <div class="brand">
@@ -63,7 +59,6 @@
           <div class="small muted">تصميم كلاسيكي بسيط</div>
         </div>
       </div>
-
       <nav>
         <ul>
           <li><a href="#home">الرئيسية</a></li>
@@ -72,7 +67,6 @@
           <li><a href="#contact">تواصل</a></li>
         </ul>
       </nav>
-
       <div class="mobile-menu">
         <button onclick="toggleNav()">☰</button>
       </div>
@@ -151,11 +145,11 @@
       const msg = document.getElementById('message').value.trim();
       const status = document.getElementById('status');
       if(!name||!email||!msg){ status.textContent = 'الرجاء ملء جميع الحقول.'; return false; }
-      // محاكاة إرسال: هنا يمكنك ربط API لاحقًا
       status.textContent = 'تم إرسال الرسالة — سنعود إليك قريبًا.';
       document.getElementById('contactForm').reset();
       return false;
     }
   </script>
+
 </body>
 </html>
