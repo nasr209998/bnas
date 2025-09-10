@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>موقع بسيط كلاسيكي</title>
+  <style>
+    /* تصميم كلاسيكي نظيف */
+    :root{
+      --bg:#fbf7f0; /* لون كريمي */
+      --accent:#1f2d3d; /* كحلي خشبي */
+      --muted:#6b6762;
+      --card:#fff;
+      --maxw:1100px;
+      --radius:12px;
+      font-family: 'Georgia', 'Times New Roman', serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--accent);line-height:1.6}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:62px;height:62px;border-radius:8px;background:linear-gradient(135deg,#d9c8b6,#f3ebe0);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);box-shadow:0 2px 6px rgba(31,45,61,0.06)}
+    nav ul{display:flex;gap:18px;margin:0;padding:0;list-style:none}
+    nav a{color:var(--accent);text-decoration:none;font-weight:600}
+
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-top:22px}
+    .hero .card{background:var(--card);padding:26px;border-radius:var(--radius);box-shadow:0 6px 24px rgba(31,45,61,0.06)}
+    .hero h1{margin:0 0 8px;font-size:34px}
+    .hero p{margin:0;color:var(--muted)}
+    .cta{display:inline-block;margin-top:14px;padding:10px 18px;border-radius:10px;border:2px solid var(--accent);text-decoration:none;font-weight:700}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+    .feature{background:var(--card);padding:18px;border-radius:10px;box-shadow:0 4px 18px rgba(31,45,61,0.04)}
+    .feature h3{margin:0 0 6px}
+
+    footer{margin-top:34px;padding:24px 0;border-top:1px solid rgba(0,0,0,0.04);color:var(--muted)}
+    .small{font-size:14px}
+
+    /* استجابة بسيطة */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      nav ul{display:none}
+      .mobile-menu{display:block}
+    }
+    .mobile-menu{display:none}
+    .card form{display:flex;flex-direction:column;gap:10px}
+    input,textarea{padding:10px;border-radius:8px;border:1px solid #e6dfd6;background:#fff;font-family:inherit}
+    button{padding:10px 14px;border-radius:8px;border:0;background:var(--accent);color:#fff;font-weight:700}
+
+    /* لمسة كلاسيكية للخط */
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">ن</div>
+        <div>
+          <div style="font-weight:800;font-size:18px">نصر للدعاية والإعلان</div>
+          <div class="small muted">تصميم كلاسيكي بسيط</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#services">الخدمات</a></li>
+          <li><a href="#contact">تواصل</a></li>
+        </ul>
+      </nav>
+
+      <div class="mobile-menu">
+        <button onclick="toggleNav()">☰</button>
+      </div>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="card">
+        <h1>مرحبًا بك في موقعنا الكلاسيكي</h1>
+        <p>نسوّق لهويتك بصورٍ أنيقة وبأسلوب تقليدي يمنح مشروعك ثقة ومصداقية. نقدم شعارات، بطاقات، لافتات وفيديوهات دعائية.</p>
+        <a class="cta" href="#services">اطلب الخدمة</a>
+
+        <div class="features">
+          <div class="feature">
+            <h3>تصميم شعار</h3>
+            <p class="muted">هوية بصرية متكاملة تناسب نشاطك التجاري.</p>
+          </div>
+          <div class="feature">
+            <h3>مواد مطبوعة</h3>
+            <p class="muted">بطاقات، أغلفة، ولافتات بخامات عالية الجودة.</p>
+          </div>
+          <div class="feature">
+            <h3>فيديو وموشن</h3>
+            <p class="muted">مقدمات فيديو إحترافية ومقاطع دعائية قصيرة.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h2>تواصل معنا</h2>
+        <form id="contactForm" onsubmit="return submitForm(event)">
+          <input type="text" id="name" placeholder="الاسم" required>
+          <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+          <textarea id="message" rows="5" placeholder="رسالتك" required></textarea>
+          <button type="submit">أرسل</button>
+        </form>
+        <p id="status" class="small muted" style="margin-top:10px"></p>
+      </aside>
+    </section>
+
+    <section id="about" style="margin-top:28px">
+      <div class="card">
+        <h2>عنّنا</h2>
+        <p class="muted">نحن فريق تصميم يُركز على البساطة والأناقة. نقدم حلول سريعة وبأسعار عادلة تناسب المشاريع الصغيرة والمتوسطة.</p>
+      </div>
+    </section>
+
+    <section id="services" style="margin-top:18px">
+      <div class="card">
+        <h2>خدماتنا</h2>
+        <ul>
+          <li>تصميم شعارات وهوية بصرية</li>
+          <li>تصميم منشورات سوشال ميديا</li>
+          <li>مقدمات فيديو قصيرة وموشن جرافيك</li>
+          <li>تصميم مطبوعات وتجهيز للطباعة</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="small">© 2025 نصر للدعاية — جميع الحقوق محفوظة.</div>
+      <div class="small muted">العنوان: صنعاء — الهاتف: 77XXXXXXX</div>
+    </footer>
+  </div>
+
+  <script>
+    function toggleNav(){
+      const ul = document.querySelector('nav ul');
+      if(!ul) return;
+      ul.style.display = (ul.style.display === 'flex')? 'none':'flex';
+    }
+
+    function submitForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      const status = document.getElementById('status');
+      if(!name||!email||!msg){ status.textContent = 'الرجاء ملء جميع الحقول.'; return false; }
+      // محاكاة إرسال: هنا يمكنك ربط API لاحقًا
+      status.textContent = 'تم إرسال الرسالة — سنعود إليك قريبًا.';
+      document.getElementById('contactForm').reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
